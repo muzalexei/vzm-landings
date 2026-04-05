@@ -183,7 +183,7 @@
             <div class="container">
                 <h2>Готовы создать AI-агента?</h2>
                 <p>Расскажите о вашей задаче — сделаем бесплатную оценку за 24 часа</p>
-                <form class="cta-form" action="https://formspree.io/f/mjgppqee" method="POST" onsubmit="submitForm(event)"><input type="text" name="name" placeholder="Ваше имя" required><input type="tel" name="phone" placeholder="Телефон" required><input type="email" name="email" placeholder="Email"><textarea name="message" rows="3" placeholder="Кратко опишите задачу"></textarea><button type="submit" class="btn-primary btn-large">🚀 Получить консультацию</button></form>
+                <form class="cta-form" action="https://formspree.io/f/mjgppqee" method="POST" onsubmit="submitForm(event)"> <div class="form-group"> <input type="text" name="name" placeholder="Ваше имя" required> </div> <div class="form-group"> <input type="tel" name="phone" placeholder="Телефон" required> </div> <div class="form-group"> <input type="email" name="email" placeholder="Email"> </div> <div class="form-group"> <textarea name="message" rows="3" placeholder="Кратко опишите задачу"></textarea> </div> <button type="submit" class="btn-primary btn-large">🚀 Получить консультацию</button> </form>
             </div>
         </section>
 
@@ -206,6 +206,8 @@ function submitForm(e) { e.preventDefault(); const form = e.target; const btn = 
 </script>
 </body>
 </html>
+
+
 
 
 
