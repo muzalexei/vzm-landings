@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI-агентство: внедряем AI-агентов для автоматизации бизнеса за 7 дней. Закупки, документооборот, поддержка на базе OpenClaw.">
+    <meta name="description" content="AI-агентство: внедряем AI-агентов для автоматизации бизнеса от 3 дней. Закупки, документооборот, поддержка на базе OpenClaw.">
     <meta name="keywords" content="ai агенты для бизнеса, внедрение ai агентов, создание ai агента, разработка ai агентов, ai агент закупки, автоматизация закупок ai, openclaw настройка, ai агент для тендеров">
     <title>AI-агентство — Внедрение AI-агентов для бизнеса | OpenClaw</title>
     <link rel="stylesheet" href="style.css">
@@ -39,11 +39,11 @@
             </div>
         </nav>
         <div class="container hero-content">
-            <h1>AI-агенты под ключ <span class="accent">за 7 дней</span></h1>
+            <h1>AI-агенты под ключ <span class="accent">от 3 дней</span></h1>
             <p class="hero-sub">Автоматизируем лендинги, Telegram-ботов, базы знаний и соцсети. Гарантия результата или вернём деньги.</p>
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary">Получить консультацию</a>
-                <a href="#services" class="btn-secondary">Наши услуги</a>
+                <a href="#cta-section" class="btn-secondary">Оставить заявку</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
@@ -183,13 +183,7 @@
             <div class="container">
                 <h2>Готовы создать AI-агента?</h2>
                 <p>Расскажите о вашей задаче — сделаем бесплатную оценку за 24 часа</p>
-                <form class="cta-form" action="https://formspree.io/f/mjgppqee" method="POST">
-                    <input type="text" name="name" placeholder="Ваше имя" required>
-                    <input type="tel" name="phone" placeholder="Телефон" required>
-                    <input type="email" name="email" placeholder="Email">
-                    <textarea name="message" rows="3" placeholder="Кратко опишите задачу"></textarea>
-                    <button type="submit" class="btn-primary btn-large">🚀 Получить консультацию</button>
-                </form>
+                <form class="cta-form" action="https://formspree.io/f/mjgppqee" method="POST" onsubmit="submitForm(event)"><input type="text" name="name" placeholder="Ваше имя" required><input type="tel" name="phone" placeholder="Телефон" required><input type="email" name="email" placeholder="Email"><textarea name="message" rows="3" placeholder="Кратко опишите задачу"></textarea><button type="submit" class="btn-primary btn-large">🚀 Получить консультацию</button></form>
             </div>
         </section>
 
@@ -215,8 +209,11 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 </script>
 <script src='quiz.js'></script>
+<script>function submitForm(e) { e.preventDefault(); const form = e.target; const btn = form.querySelector("button[type=submit]"); btn.textContent = "Отправка..."; btn.disabled = true; fetch(form.action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } }).then(r => { if (r.ok) { alert("✅ Заявка отправлена! Свяжемся в течение часа."); form.reset(); } else { alert("❌ Ошибка. Попробуйте позже."); } btn.textContent = "🚀 Получить консультацию"; btn.disabled = false; }).catch(() => { alert("❌ Ошибка соединения"); btn.disabled = false; }); }</script>
 </body>
 </html>
+
+
 
 
 
