@@ -489,3 +489,42 @@ footer {
 }
 .contact-form select option { background: var(--dark-card); }
 .contact-form textarea { resize: vertical; font-family: inherit; }
+/* Quiz Styles */
+.quiz-options {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.quiz-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.quiz-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+.quiz-back {
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.quiz-back:hover {
+    color: var(--accent);
+}
