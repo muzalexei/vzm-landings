@@ -38,21 +38,18 @@ function backToStep2() {
 }
 
 function handleFormSubmit(e) {
-    e.preventDefault();
+    // Formspree сам обрабатывает отправку, просто добавляем скрытые поля
     const form = e.target;
-    const formData = new FormData(form);
     
-    // Добавляем данные квиза
-    formData.append('task', quizData.task);
-    formData.append('budget', quizData.budget);
+    // Добавляем данные квиза в скрытые поля
+    const taskInput = document.getElementById('quiz-task');
+    const budgetInput = document.getElementById('quiz-budget');
     
-    console.log('Form submitted:', Object.fromEntries(formData));
+    if (taskInput) taskInput.value = quizData.task || 'не выбрано';
+    if (budgetInput) budgetInput.value = quizData.budget || 'не выбрано';
     
-    // TODO: Отправить в Google Forms / Telegram / API
-    alert('✅ Заявка отправлена! Мы свяжемся с вами в течение часа.');
-    
-    // Редирект на thank-you page (создать позже)
-    // window.location.href = 'thank-you.html';
+    // Formspree отправит форму сам, не предотвращаем default
+    console.log('Отправка в Formspree:', { task: quizData.task, budget: quizData.budget });
 }
 
 // Инициализация: показать только step 1
