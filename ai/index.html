@@ -34,7 +34,7 @@
                     <li><a href="#how-it-works">Как это работает</a></li>
                     <li><a href="#cases">Кейсы</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact" class="btn-cta">Оставить заявку</a></li>
+                    <li><a href="#cta-section" class="btn-cta">Оставить заявку</a></li>
                 </ul>
             </div>
         </nav>
@@ -42,7 +42,7 @@
             <h1>AI-агенты под ключ <span class="accent">от 3 дней</span></h1>
             <p class="hero-sub">Автоматизируем лендинги, Telegram-ботов, базы знаний и соцсети. Гарантия результата или вернём деньги.</p>
             <div class="hero-actions">
-                <a href="#contact" class="btn-primary">Получить консультацию</a>
+                <a href="#cta-section" class="btn-primary">Получить консультацию</a>
                 <a href="#cta-section" class="btn-secondary">Оставить заявку</a>
             </div>
             <div class="hero-stats">
@@ -202,14 +202,8 @@
         </div>
     </footer>
 <script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('✅ Заявка отправлена! Свяжемся в течение часа.');
-    this.reset();
-});
+function submitForm(e) { e.preventDefault(); const form = e.target; const btn = form.querySelector('button[type=submit]'); btn.textContent = '⏳ Отправка...'; btn.disabled = true; fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } }).then(r => { if (r.ok) { alert('✅ Заявка отправлена! Свяжемся в течение часа.'); form.reset(); } else { alert('❌ Ошибка. Попробуйте позже.'); } btn.textContent = '🚀 Получить консультацию'; btn.disabled = false; }).catch(() => { alert('❌ Ошибка соединения'); btn.textContent = '🚀 Получить консультацию'; btn.disabled = false; }); }
 </script>
-<script src='quiz.js'></script>
-<script>function submitForm(e) { e.preventDefault(); const form = e.target; const btn = form.querySelector("button[type=submit]"); btn.textContent = "Отправка..."; btn.disabled = true; fetch(form.action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } }).then(r => { if (r.ok) { alert("✅ Заявка отправлена! Свяжемся в течение часа."); form.reset(); } else { alert("❌ Ошибка. Попробуйте позже."); } btn.textContent = "🚀 Получить консультацию"; btn.disabled = false; }).catch(() => { alert("❌ Ошибка соединения"); btn.disabled = false; }); }</script>
 </body>
 </html>
 
