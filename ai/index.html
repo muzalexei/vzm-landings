@@ -167,10 +167,6 @@
                         <p>Зависит от сложности: простой чат-бот — от 15 000 ₽, комплексная система с несколькими агентами — от 100 000 ₽. Мы делаем оценку бесплатно после анализа задачи.</p>
                     </details>
                     <details>
-                        <summary>Работает ли AI-агент локально без облака?</summary>
-                        <p>Да! Локальный AI-агент работает на вашем сервере. Все данные остаются у вас. Используются модели вроде Llama, Qwen или Mistral, работающие без интернета.</p>
-                    </details>
-                    <details>
                         <summary>Какие AI-агенты лучше для малого бизнеса?</summary>
                         <p>Для малого бизнеса лучше всего подходят: чат-боты (Telegram/WhatsApp), агенты для автоматизации отчётов, и AI-ассистенты для поддержки клиентов — всё это можно запустить за 1-3 дня.</p>
                     </details>
@@ -182,57 +178,18 @@
             </div>
                         
 
-        <!-- CTA Section -->
+        <!-- CTA Section with Form -->
         <section id="cta-section" class="cta">
             <div class="container">
                 <h2>Готовы создать AI-агента?</h2>
                 <p>Расскажите о вашей задаче — сделаем бесплатную оценку за 24 часа</p>
-                <a href="#contact-quiz" class="btn-primary btn-large">🚀 Оставить заявку</a>
-            </div>
-        </section>
-        </section>
-
-        <!-- Contact Form with Quiz -->
-        <section id="contact-quiz" class="contact">
-            <div class="container">
-                <h2>Оставить заявку</h2>
-                <p style="text-align:center">Заполните квиз — мы подберём решение под вашу задачу</p>
-                <div class="form-container" id="contact-form">
-                    <div id="quiz-step-1">
-                        <h3 style="text-align:center;margin-bottom:1.5rem;">Какая задача стоит перед вами?</h3>
-                        <div class="quiz-options">
-                            <button class="quiz-btn" onclick="nextQuizStep('landing')">🌐 Создать лендинг</button>
-                            <button class="quiz-btn" onclick="nextQuizStep('bot')">💬 Telegram-бот</button>
-                            <button class="quiz-btn" onclick="nextQuizStep('automation')">⚙️ Автоматизация</button>
-                            <button class="quiz-btn" onclick="nextQuizStep('database')">🗄️ Базы данных</button>
-                            <button class="quiz-btn" onclick="nextQuizStep('social')">📱 Соцсети</button>
-                        </div>
-                    </div>
-                    <div id="quiz-step-2" style="display:none;">
-                        <h3 style="text-align:center;margin-bottom:1.5rem;">Какой бюджет на внедрение?</h3>
-                        <div class="quiz-options">
-                            <button class="quiz-btn" onclick="nextQuizStep('low')">До 30k ₽</button>
-                            <button class="quiz-btn" onclick="nextQuizStep('medium')">30k – 50k ₽</button>
-                            <button class="quiz-btn" onclick="nextQuizStep('high')">50k – 100k ₽</button>
-                            <button class="quiz-btn" onclick="nextQuizStep('enterprise')">100k+ ₽</button>
-                        </div>
-                        <button class="quiz-back" onclick="backToStep1()">← Назад</button>
-                    </div>
-                    <div id="quiz-step-3" style="display:none;">
-                        <h3 style="text-align:center;margin-bottom:1rem;">Почти готово! Оставьте контакты</h3>
-                        <p style="text-align:center;color:var(--gray);font-size:0.9rem;margin-bottom:1.5rem;">Свяжемся в течение часа</p>
-                        <form class="contact-form" action="https://formspree.io/f/mjgppqee" method="POST" onsubmit="handleFormSubmit(event)">
-                            <input type="hidden" id="quiz-task" name="task">
-                            <input type="hidden" id="quiz-budget" name="budget">
-                            <input type="text" name="name" placeholder="Ваше имя" required>
-                            <input type="tel" name="phone" placeholder="Телефон" required>
-                            <input type="email" name="email" placeholder="Email">
-                            <textarea name="message" rows="2" placeholder="Кратко опишите задачу"></textarea>
-                            <button type="submit" class="btn-primary btn-large">🚀 Получить консультацию</button>
-                        </form>
-                        <button class="quiz-back" onclick="backToStep2()">← Назад</button>
-                    </div>
-                </div>
+                <form class="cta-form" action="https://formspree.io/f/mjgppqee" method="POST">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                    <input type="email" name="email" placeholder="Email">
+                    <textarea name="message" rows="3" placeholder="Кратко опишите задачу"></textarea>
+                    <button type="submit" class="btn-primary btn-large">🚀 Получить консультацию</button>
+                </form>
             </div>
         </section>
 
