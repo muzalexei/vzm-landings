@@ -1,187 +1,671 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лендинги на основе Wordstat | VZM</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>Консультации по 223-ФЗ | Экспертиза для участников закупок</title>
+    <meta
+      name="description"
+      content="Консультации и экспертиза по 223-ФЗ. Помогаем участникам закупок: подготовка заявок, обжалование, нацрежим, ЕИС. Бесплатная первичная консультация."
+    />
+    <meta
+      name="keywords"
+      content="223 фз, 223-ФЗ о закупках, участии в закупках, консультация 223 фз, экспертиза 223 фз, положение о закупке, жалоба 223 фз, нацрежим, ЕИС"
+    />
+    <meta name="author" content="Консалтинг 223-ФЗ" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://muzalexei.github.io/"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://muzalexei.github.io/"
+    />
+    <meta
+      property="og:title"
+      content="Консультации по 223-ФЗ | Экспертиза для участников закупок"
+    />
+    <meta
+      property="og:description"
+      content="Помогаем участникам закупок побеждать: подготовка, обжалование, экспертиза, нацрежим. Бесплатная консультация."
+    />
+    <meta
+      property="og:image"
+      content="https://muzalexei.github.io/consulting-223fz/assets/alexey-portrait.jpg"
+    />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://muzalexei.github.io/"
+    />
+    <meta name="twitter:title" content="Консультации по 223-ФЗ | Экспертиза" />
+    <meta
+      name="twitter:description"
+      content="Помогаем участникам закупок побеждать по 223-ФЗ"
+    />
+
+    <link
+      rel="preload"
+      href="consulting-223fz/assets/manrope.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="consulting-223fz/style.css" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Консультации по 223-ФЗ",
+        "description": "Экспертиза и консультации для участников закупок по 223-ФЗ",
+        "url": "https://muzalexei.github.io/",
+        "areaServed": "Россия",
+        "serviceType": [
+          "Консультации по закупкам",
+          "Экспертиза 223-ФЗ",
+          "Подготовка заявок"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "RUB",
+          "description": "Первичная консультация бесплатно"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": "Russian"
         }
+      }
+    </script>
+  </head>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+  <body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
         }
+        ((k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a));
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js?id=108398747",
+        "ym",
+      );
 
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .landing-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .landing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .landing-card h2 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.8em;
-        }
-
-        .landing-card .subtitle {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .stats {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .stat-item {
-            background: #f0f2f5;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9em;
-        }
-
-        .stat-item strong {
-            color: #667eea;
-            display: block;
-            font-size: 1.2em;
-        }
-
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin-top: 10px;
-        }
-
-        .footer {
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-            opacity: 0.8;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .landing-card h2 {
-                font-size: 1.5em;
-            }
-
-            .stats {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🚀 Лендинги на основе данных</h1>
-            <p>Созданы на основе реальных запросов из Яндекс.Wordstat</p>
+      ym(108398747, "init", {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/108398747"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <header class="masthead container" id="top">
+      <a class="brand" href="#top" aria-label="VZM — консалтинг по 223-ФЗ"
+        >VZM<span>КОНСАЛТИНГ / 223-ФЗ</span></a
+      >
+      <div class="nav-area">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="navigation"
+          aria-expanded="false"
+        >
+          Меню <img src="consulting-223fz/assets/icons/list.svg" alt="" width="20" height="20" />
+        </button>
+        <nav id="navigation" aria-label="Основная навигация">
+          <a href="#services">Услуги</a><a href="#about">Подход</a
+          ><a href="#cases">Как работаем</a><a href="#faq">Вопросы</a>
+        </nav>
+        <div class="nav-bottom">
+          <span class="nav-note">ДЛЯ ПОСТАВЩИКОВ И ЗАКАЗЧИКОВ</span
+          ><a class="button button-dark" href="#contact" data-cta
+            >Обсудить задачу
+            <img
+              class="light-icon"
+              src="consulting-223fz/assets/icons/arrow-up-right.svg"
+              alt=""
+              width="19"
+              height="19"
+          /></a>
         </div>
-
-        <a href="ai-agents/" class="landing-card">
-            <h2>🤖 AI-Агенты</h2>
-            <p class="subtitle">Разработка и внедрение AI-агентов для бизнеса</p>
-            <div class="stats">
-                <div class="stat-item">
-                    <strong>10,718</strong>
-                    запросов/мес
-                </div>
-                <div class="stat-item">
-                    <strong>647</strong>
-                    создание агента
-                </div>
-                <div class="stat-item">
-                    <strong>198</strong>
-                    локальный AI
-                </div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-panel">
+          <div class="hero-portrait">
+            <img
+              src="consulting-223fz/assets/alexey-portrait.jpg"
+              width="853"
+              height="1280"
+              alt="Ваш консультант по закупкам 223-ФЗ"
+              fetchpriority="high"
+            />
+            <div class="portrait-caption">
+              <span>ЛИЧНЫЙ ПОДХОД</span
+              ><strong>Ваш партнёр<br />в мире закупок.</strong>
             </div>
-            <span class="badge">На Wordstat-данных →</span>
-        </a>
-
-        <a href="consulting-223fz/" class="landing-card">
-            <h2>📋 Консультации 223-ФЗ</h2>
-            <p class="subtitle">Экспертиза и сопровождение по 223-ФЗ для участников закупок</p>
-            <div class="stats">
-                <div class="stat-item">
-                    <strong>255,003</strong>
-                    запросов/мес
-                </div>
-                <div class="stat-item">
-                    <strong>27,313</strong>
-                    закон 223-ФЗ
-                </div>
-                <div class="stat-item">
-                    <strong>2,456</strong>
-                    обжалование
-                </div>
-            </div>
-            <span class="badge">На Wordstat-данных →</span>
-        </a>
-
-        <div class="footer">
-            <p>Создано с использованием Wordstat API + YandexART</p>
-            <p style="margin-top: 10px;">
-                <a href="https://github.com/muzalexei/vzm-landings" 
-                   style="color: white; text-decoration: underline;" 
-                   target="_blank">
-                    GitHub репозиторий
-                </a>
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">ЭКСПЕРТИЗА ПО 223-ФЗ</p>
+            <h1 id="hero-title">
+              В закупках<br />важна <span>уверенность.</span>
+            </h1>
+            <p class="hero-description">
+              Помогаю разобраться в требованиях, защитить ваши интересы и пройти
+              путь от документации до результата.
             </p>
+            <a class="button button-dark" href="#contact" data-cta
+              >Получить консультацию
+              <img
+                class="light-icon"
+                src="consulting-223fz/assets/icons/arrow-up-right.svg"
+                alt=""
+                width="19"
+                height="19"
+            /></a>
+            <p class="hero-note">Первичная консультация — бесплатно</p>
+            <div class="hero-facts">
+              <div><strong>223-ФЗ</strong><span>Фокус на закупках</span></div>
+              <div>
+                <strong>Лично</strong><span>Ваша задача — на связи</span>
+              </div>
+              <div><strong>Онлайн</strong><span>По всей России</span></div>
+            </div>
+          </div>
         </div>
-    </div>
-</body>
+      </section>
+      <section
+        id="about"
+        class="about section container"
+        aria-labelledby="about-title"
+      >
+        <p class="eyebrow">МОЙ ПОДХОД</p>
+        <h2 id="about-title">
+          Сложные требования.<br /><span>Понятные решения.</span>
+        </h2>
+        <p class="section-description">
+          В закупках нет универсальных ответов. Поэтому сначала разбираюсь в
+          вашей ситуации, изучаю документы и объясняю возможные действия —
+          простым языком, с опорой на закон.
+        </p>
+        <div class="benefits">
+          <div>
+            <img
+              src="consulting-223fz/assets/icons/check.svg"
+              alt=""
+              width="24"
+              height="24"
+            />Внимание к вашей ситуации
+          </div>
+          <div>
+            <img
+              src="consulting-223fz/assets/icons/check.svg"
+              alt=""
+              width="24"
+              height="24"
+            />Прозрачный план действий
+          </div>
+          <div>
+            <img
+              src="consulting-223fz/assets/icons/check.svg"
+              alt=""
+              width="24"
+              height="24"
+            />Обоснованная позиция
+          </div>
+          <div>
+            <img
+              src="consulting-223fz/assets/icons/check.svg"
+              alt=""
+              width="24"
+              height="24"
+            />Прямая связь с экспертом
+          </div>
+        </div>
+        <a class="button button-dark" href="#services" data-cta
+          >Чем могу помочь
+          <img
+            class="light-icon"
+            src="consulting-223fz/assets/icons/arrow-up-right.svg"
+            alt=""
+            width="19"
+            height="19"
+        /></a>
+      </section>
+      <section
+        id="services"
+        class="services section container"
+        aria-labelledby="services-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">НАПРАВЛЕНИЯ РАБОТЫ</p>
+            <h2 id="services-title">
+              Экспертиза на каждом<br />этапе закупки.
+            </h2>
+          </div>
+          <p>
+            Точечная консультация или сопровождение.<br />Выбираем формат под
+            вашу задачу.
+          </p>
+        </div>
+        <div
+          class="filters"
+          role="group"
+          aria-label="Услуги для разных участников"
+        >
+          <button type="button" data-filter="all" aria-pressed="true">
+            Все услуги</button
+          ><button type="button" data-filter="supplier" aria-pressed="false">
+            Поставщикам</button
+          ><button type="button" data-filter="customer" aria-pressed="false">
+            Заказчикам
+          </button>
+        </div>
+        <div class="services-grid">
+          <a
+            class="service-card"
+            href="#contact"
+            data-audience="supplier"
+            data-cta
+            ><div class="service-top">
+              <img
+                src="consulting-223fz/assets/icons/file-text.svg"
+                alt=""
+                width="32"
+                height="32"
+              /><span>01</span>
+            </div>
+            <h3>Подготовка заявок</h3>
+            <p>
+              Документы, требования и критерии оценки. Проверка заявки перед
+              подачей.
+            </p>
+            <span class="service-link"
+              >Обсудить задачу
+              <img
+                src="consulting-223fz/assets/icons/arrow-up-right.svg"
+                alt=""
+                width="20"
+                height="20" /></span
+          ></a>
+          <a
+            class="service-card"
+            href="#contact"
+            data-audience="supplier"
+            data-cta
+            ><div class="service-top">
+              <img
+                src="consulting-223fz/assets/icons/scales.svg"
+                alt=""
+                width="32"
+                height="32"
+              /><span>02</span>
+            </div>
+            <h3>Обжалование в ФАС</h3>
+            <p>
+              Анализ оснований для жалобы, подготовка позиции и защита ваших
+              интересов.
+            </p>
+            <span class="service-link"
+              >Обсудить задачу
+              <img
+                src="consulting-223fz/assets/icons/arrow-up-right.svg"
+                alt=""
+                width="20"
+                height="20" /></span
+          ></a>
+          <a
+            class="service-card"
+            href="#contact"
+            data-audience="supplier customer"
+            data-cta
+            ><div class="service-top">
+              <img
+                src="consulting-223fz/assets/icons/magnifying-glass.svg"
+                alt=""
+                width="32"
+                height="32"
+              /><span>03</span>
+            </div>
+            <h3>Экспертиза документации</h3>
+            <p>
+              Проверка условий закупки, рисков и соответствия требованиям
+              223-ФЗ.
+            </p>
+            <span class="service-link"
+              >Обсудить задачу
+              <img
+                src="consulting-223fz/assets/icons/arrow-up-right.svg"
+                alt=""
+                width="20"
+                height="20" /></span
+          ></a>
+          <a
+            class="service-card"
+            href="#contact"
+            data-audience="supplier customer"
+            data-cta
+            ><div class="service-top">
+              <img
+                src="consulting-223fz/assets/icons/globe.svg"
+                alt=""
+                width="32"
+                height="32"
+              /><span>04</span>
+            </div>
+            <h3>Национальный режим</h3>
+            <p>
+              Разбор ограничений, преимуществ и подтверждения происхождения
+              товаров.
+            </p>
+            <span class="service-link"
+              >Обсудить задачу
+              <img
+                src="consulting-223fz/assets/icons/arrow-up-right.svg"
+                alt=""
+                width="20"
+                height="20" /></span
+          ></a>
+          <a
+            class="service-card"
+            href="#contact"
+            data-audience="customer"
+            data-cta
+            ><div class="service-top">
+              <img
+                src="consulting-223fz/assets/icons/buildings.svg"
+                alt=""
+                width="32"
+                height="32"
+              /><span>05</span>
+            </div>
+            <h3>Работа с ЕИС</h3>
+            <p>
+              Помощь с размещением информации и вопросами работы в системе
+              закупок.
+            </p>
+            <span class="service-link"
+              >Обсудить задачу
+              <img
+                src="consulting-223fz/assets/icons/arrow-up-right.svg"
+                alt=""
+                width="20"
+                height="20" /></span
+          ></a>
+          <a
+            class="service-card"
+            href="#contact"
+            data-audience="customer"
+            data-cta
+            ><div class="service-top">
+              <img
+                src="consulting-223fz/assets/icons/list-checks.svg"
+                alt=""
+                width="32"
+                height="32"
+              /><span>06</span>
+            </div>
+            <h3>Положение о закупке</h3>
+            <p>
+              Разработка и проверка положения с учётом особенностей вашей
+              организации.
+            </p>
+            <span class="service-link"
+              >Обсудить задачу
+              <img
+                src="consulting-223fz/assets/icons/arrow-up-right.svg"
+                alt=""
+                width="20"
+                height="20" /></span
+          ></a>
+        </div>
+        <p
+          class="visually-hidden"
+          id="filter-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+      <section
+        id="cases"
+        class="process section container"
+        aria-labelledby="process-title"
+      >
+        <div class="process-intro">
+          <p class="eyebrow">КАК МЫ РАБОТАЕМ</p>
+          <h2 id="process-title">От вопроса —<br />к решению.</h2>
+          <p>
+            Вы знаете, что происходит с вашей задачей и какой следующий шаг.
+          </p>
+          <a class="text-link" href="#contact" data-cta
+            >Начать с консультации
+            <img
+              src="consulting-223fz/assets/icons/arrow-up-right.svg"
+              alt=""
+              width="22"
+              height="22"
+          /></a>
+        </div>
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Знакомимся с задачей</h3>
+              <p>
+                Обсуждаем ситуацию, цель и сроки. Определяем, какие документы
+                понадобятся.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Находим правовую позицию</h3>
+              <p>
+                Изучаем документацию и практику. Объясняем риски и предлагаем
+                план действий.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Доводим до следующего шага</h3>
+              <p>
+                Готовим документы, сопровождаем процедуру и остаёмся на связи по
+                вашей задаче.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section
+        id="faq"
+        class="faq section container"
+        aria-labelledby="faq-title"
+      >
+        <div class="faq-intro">
+          <p class="eyebrow">ЧАСТЫЕ ВОПРОСЫ</p>
+          <h2 id="faq-title">Разберёмся<br />в деталях.</h2>
+          <p>Не нашли свой вопрос?<br />Обсудим его на консультации.</p>
+        </div>
+        <div class="faq-items">
+          <details>
+            <summary>
+              С чего начать участие в закупках?<img
+                src="consulting-223fz/assets/icons/plus.svg"
+                alt=""
+                width="22"
+                height="22"
+              />
+            </summary>
+            <p>
+              Начните с изучения документации конкретной закупки: требований к
+              участникам, сроков, критериев оценки и порядка подачи заявки. На
+              консультации разберём ваш случай и необходимые документы.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Можно ли обжаловать отклонение заявки?<img
+                src="consulting-223fz/assets/icons/plus.svg"
+                alt=""
+                width="22"
+                height="22"
+              />
+            </summary>
+            <p>
+              Возможность и порядок обжалования зависят от оснований отклонения
+              и стадии закупки. Для оценки нужны извещение, документация, ваша
+              заявка и протокол. Сроки проверяем отдельно по конкретной
+              ситуации.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Помогаете ли вы заказчикам?<img
+                src="consulting-223fz/assets/icons/plus.svg"
+                alt=""
+                width="22"
+                height="22"
+              />
+            </summary>
+            <p>
+              Да. Можно обратиться за проверкой закупочной документации,
+              разработкой положения о закупке, разбором национального режима и
+              вопросами размещения информации в ЕИС.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Как проходит консультация?<img
+                src="consulting-223fz/assets/icons/plus.svg"
+                alt=""
+                width="22"
+                height="22"
+              />
+            </summary>
+            <p>
+              Вы оставляете заявку и кратко описываете задачу. После этого
+              согласуем удобный формат общения и документы, которые нужно
+              изучить. Работать можно дистанционно.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Сколько стоят ваши услуги?<img
+                src="consulting-223fz/assets/icons/plus.svg"
+                alt=""
+                width="22"
+                height="22"
+              />
+            </summary>
+            <p>
+              Первичная консультация — бесплатно. Стоимость дальнейшей работы
+              зависит от объёма документов, сложности и сроков. Формат и
+              стоимость согласуем до начала работы.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section
+        id="contact"
+        class="contact container"
+        aria-labelledby="contact-title"
+      >
+        <div class="contact-copy">
+          <p class="eyebrow">НАЧНЁМ С ВАШЕЙ ЗАДАЧИ</p>
+          <h2 id="contact-title">
+            Хорошее решение<br />начинается с разговора.
+          </h2>
+          <p>
+            Расскажите, что происходит в вашей закупке.<br />Вместе определим
+            следующий шаг.
+          </p>
+          <a
+            href="https://t.me/thevzm"
+            target="_blank"
+            rel="noopener"
+            class="button button-white"
+            id="contactLink"
+            data-cta
+            >Написать в Telegram
+            <img
+              src="consulting-223fz/assets/icons/arrow-up-right.svg"
+              alt=""
+              width="20"
+              height="20" /></a
+          ><span class="contact-note"
+            >Бесплатная первичная консультация · Telegram в новой вкладке</span
+          >
+        </div>
+        <div class="contact-aside">
+          <span>223-ФЗ</span>
+          <p>Ваши интересы.<br />Моя экспертиза.</p>
+          <a href="https://t.me/thevzm" target="_blank" rel="noopener"
+            >Написать в Telegram
+            <img
+              class="light-icon"
+              src="consulting-223fz/assets/icons/arrow-up-right.svg"
+              alt=""
+              width="20"
+              height="20"
+          /></a>
+        </div>
+      </section>
+    </main>
+    <footer class="container footer">
+      <a href="#top" class="footer-brand" aria-label="VZM — наверх">VZM</a>
+      <p>Консалтинг по 223-ФЗ.<br />Личный подход к вашим закупкам.</p>
+      <div>
+        <a href="#services">Услуги</a><a href="#faq">Вопросы</a
+        ><a href="#contact">Связаться</a>
+      </div>
+      <span>© <span id="year">2026</span> VZM</span>
+    </footer>
+    <script src="consulting-223fz/script.js" defer></script>
+  </body>
 </html>
